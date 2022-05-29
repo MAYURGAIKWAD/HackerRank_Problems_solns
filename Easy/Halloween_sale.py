@@ -20,7 +20,7 @@ import sys
 def howManyGames(p, d, m, s):
     count=0
     next_game=p
-    while(s-next_game)>0:
+    while(s-next_game)>=0:
         s=s-next_game
         count+=1
         next_game=max(next_game-d,m)
