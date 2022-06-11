@@ -4,14 +4,19 @@ class Solution:
     #Function to rearrange  the array elements alternately.
     def rearrange(self,arr, n): 
         ##Your code here
-        a=[0]*n
-        for i in range(n):
-            a[i]=arr[i]
+        max_i=n-1
+        min_i=0
+        max_element= arr[max_i]+1
         for i in range(n):
             if i%2==0:
-                arr[i]=a[n-i//2-1]
+                arr[i]+=(arr[max_i]%max_element)*max_element
+                max_i-=1
             else:
-                arr[i]=a[i//2]
+                arr[i]+=(arr[min_i]%max_element)*max_element
+                min_i+=1
+        for i in range(n):
+            arr[i]=arr[i]//max_element
+                    
 
 #{ 
 #  Driver Code Starts
