@@ -14,8 +14,8 @@ class stack:
             return 
             
         elif x<self.minEle:
+            self.s.append(2*x-self.minEle)
             self.minEle=(x)
-            self.s.append(x)
             return
         self.s.append(x)
         # print (self.s,self.minEle)
@@ -26,11 +26,13 @@ class stack:
             self.minEle=-1
             return -1
         t=self.s.pop()
-        if t==self.minEle :
+        if t<=self.minEle :
+            temp=self.minEle
             if len(self.s)>0:
-                self.minEle=min(self.s)
+                self.minEle=2*self.minEle -t
             else:
                 self.minEle=-1
+            return temp
         return t
         
 
